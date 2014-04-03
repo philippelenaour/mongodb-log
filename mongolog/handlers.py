@@ -55,7 +55,7 @@ class MongoHandler(logging.Handler):
         username=None, password=None, level=logging.NOTSET):
         """ Init log handler and store the collection handle """
         logging.Handler.__init__(self, level)
-        if isinstance(collection, str):
+        if isinstance(collection, str) or isinstance(collection, unicode):
             connection = Connection(host, port)
             if username and password:
                 connection[db].authenticate(username, password)
